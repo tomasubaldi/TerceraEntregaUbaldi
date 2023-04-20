@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+    
+    {% block content %}
+        <h1>Buscar Equipo Musical</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="query" placeholder="Buscar equipo musical">
+            <button type="submit">Buscar</button>
+        </form>
+    
+        {% if equipos %}
+            <ul>
+            {% for equipo in equipos %}
+                <li>{{ equipo.marca }} {{ equipo.modelo }} ({{ equipo.potencia }})</li>
+            {% empty %}
+                <li>No se encontraron equipos musicales</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endblock %}

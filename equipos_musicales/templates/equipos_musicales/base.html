@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>{% block title %}Proyecto Prueba{% endblock %}</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="{% url 'lista_equipos_musicales' %}">Lista de Equipos Musicales</a></li>
+        <li><a href="{% url 'buscar_equipo_musical' %}">Buscar Equipo Musical</a></li>
+    </ul>
+</nav>
+
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+</body>
+</html>
+
