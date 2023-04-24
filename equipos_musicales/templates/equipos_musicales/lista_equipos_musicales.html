@@ -6,8 +6,8 @@
     {% for equipo in equipos %}
         <li>{{ equipo.marca }} {{ equipo.modelo }} ({{ equipo.potencia }})</li>
     {% empty %}
-        <li>No hay equipos
-
-            {% endfor %}
-        </ul>
-    {% endblock %}
+        <li>No hay equipos</li>
+    {% endfor %}
+    </ul>
+    <a href="{% url 'crear_equipo_musical' %}">Volver a la página principal</a>
+{% endblock %}

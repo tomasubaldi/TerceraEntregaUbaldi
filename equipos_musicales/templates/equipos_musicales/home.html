@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Equipos Musicales</title>
+</head>
+<body>
+  <h1>Equipos Musicales</h1>
+  <h2>Crear Equipo Musical</h2>
+  <form method="POST" action="{% url 'crear_equipo_musical' %}">
+    {% csrf_token %}
+    <label for="marca">Marca:</label>
+    <input type="text" name="marca" required><br>
+    <label for="modelo">Modelo:</label>
+    <input type="text" name="modelo" required><br>
+    <label for="potencia">Potencia:</label>
+    <input type="text" name="potencia" required><br>
+    <label for="descripcion">Descripción:</label>
+    <input type="text" name="descripcion" required><br>
+    <input type="submit" value="Crear">
+  </form>
+
+  <h2>Lista de Equipos Musicales</h2>
+  <ul>
+    {% for equipo in equipos %}
+      <li>{{ equipo.marca }} {{ equipo.modelo }} - {{ equipo.potencia }} - {{ equipo.descripcion }}</li>
+    {% empty %}
+      <li>No hay equipos musicales registrados.</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
